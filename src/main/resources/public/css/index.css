@@ -1,0 +1,73 @@
+#background {
+	position: absolute;
+	z-index: -2;
+	padding: 0;
+	background-image: url("../imgs/mapa.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+	width: 800px;
+	height: 475;
+}
+
+#mapa {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+#mapa td {
+	width: 25px;
+	height: 25px;
+	z-index: 3;
+	border-radius: 50%;
+	color: white;
+	text-align: center;
+}
+
+.caminho {
+	margin: 10px;
+	width: calc(100%-20);
+	background-color: #444;
+}
+
+.caminho label{
+	text-align: center;
+}
+
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  color: white;
+}
+
+.sidenav-item{
+	color: white;
+  	padding: 16px;
+  	text-decoration: none;
+  	display: block;
+}
+
+.sidenav .sidenav-item:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.linha {
+	position: absolute;
+	display: none;
+	height: 2px;
+	z-index: 1;
+	background-color: blue;
+	transform-origin: left;
+}
+
+#form {
+	display: none;
+}
