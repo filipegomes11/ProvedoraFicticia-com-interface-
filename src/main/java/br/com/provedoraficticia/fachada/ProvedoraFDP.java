@@ -9,33 +9,35 @@ import br.com.provedoraficticia.basicas.Conexao;
 import br.com.provedoraficticia.basicas.Grafo;
 import br.com.provedoraficticia.basicas.Poste;
 import br.com.provedoraficticia.negocio.MenorCaminho;
+import repositorio.RepositorioGrafo;
 
 @Service
-public class ProvedoraFDP {
+public class ProvedoraFDP { 
 	
-	private Grafo grafo;
-	private List<Poste> postes; 
+	private RepositorioGrafo repo = new RepositorioGrafo();
 	
 	public void inserirPostes(List<Poste> postes) {
-		this.postes = postes;
+		repo.inserirPostes(postes);
 	}
 	
 	public void inserirConexoes(List<Conexao> conexoes) {
-		grafo = new Grafo(conexoes);
+		repo.inserirConexoes(conexoes);
 	}
 	
 	public List<Poste> listarPostes() {
-		return postes;
+		return repo.listarPostes();
 	}
 	
 	public List<Conexao> listarConexoes() {
-		if(grafo != null)
-			return grafo.getConexoes();
-		else
-			return new ArrayList<>();
+		return repo.listarConexoes();
+	}
+	
+	public Poste encontraPostePorId(int id) {
+		return repo.encontraPostePorId(id);
 	}
 	
 	public List<Poste> menorCaminho(int idOrigem) {
+		Grafo grafo = repo.getGrafo();
 		if (grafo != null) {
 			Poste origem = encontraPostePorId(idOrigem);
 			if(origem != null)
@@ -49,7 +51,5 @@ public class ProvedoraFDP {
 		}
 	}
 	
-	public Poste encontraPostePorId(int id) {
-		return postes.stream().filter(v -> v.getId() == id).findAny().orElse(null);
-	}
+	
 }
