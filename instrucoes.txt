@@ -1,0 +1,1 @@
+Instruções: É uma aplicação Spring Boot, para acessar a interface gráfica é preciso acessar a porta onde ela está rodando. Lá haverá  uma página contendo a interface e para carregar o grafo basta clicar em "Inserir Grafo" e selecionar o arquivo JSON.
